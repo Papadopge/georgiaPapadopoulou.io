@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Settings Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/settingssimulator.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="settings-container">
+            <h2>Settings Simulator</h2>
+            <div class="setting-list" id="settingList">
+                <!-- Settings will be added dynamically here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const settingList = document.getElementById('settingList');
+
+            const settings = [
+                { name: 'Setting 1', isEnabled: false },
+                { name: 'Setting 2', isEnabled: false },
+                { name: 'Setting 3', isEnabled: false }
+                // Add more settings here
+            ];
+
+            settings.forEach(setting => {
+                const settingItem = document.createElement('div');
+                settingItem.className = 'setting-item';
+
+                const label = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked = setting.isEnabled;
+                checkbox.addEventListener('change', function () {
+                    toggleSetting(setting);
+                });
+
+                const textNode = document.createTextNode(setting.name);
+
+                label.appendChild(checkbox);
+                label.appendChild(textNode);
+                settingItem.appendChild(label);
+                settingList.appendChild(settingItem);
+            });
+
+            function toggleSetting(setting) {
+                setting.isEnabled = !setting.isEnabled;
+            }
+        });
+    </script>
+</body>
+
+</html>

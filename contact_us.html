@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Contact Us Template for Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/contactus.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="row">
+                    <div class="alert alert-success" role="alert" style="display: none;" id="successAlert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>You successfully submited in Contact Us Page</p>
+                        <hr>
+                    </div>
+                    <form class="form-contactus" id="contactUsForm">
+                        <h1 class="h3 mb-3 font-weight-normal">Contact Us</h1>
+                        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required>
+                        <div class="alert alert-danger" style="display: none;" id="firstNameError">
+                            <div>First Name is required.</div>
+                        </div>
+                        <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required>
+                        <div class="alert alert-danger" style="display: none;" id="lastNameError">
+                            <div>Last Name is required.</div>
+                        </div>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+                        <div class="alert alert-danger" style="display: none;" id="emailError">
+                            <div>Email is required.</div>
+                        </div>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div class="alert alert-danger" style="display: none;" id="passwordError">
+                            <div>Password is required.</div>
+                        </div>
+                        <textarea name="message" class="feedback-input" placeholder="Comments"></textarea><br>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" id="submitFormButton"
+                            type="button">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const successAlert = document.getElementById('successAlert');
+            const firstNameInput = document.getElementById('inputFirstName');
+            const firstNameError = document.getElementById('firstNameError');
+            const lastNameInput = document.getElementById('inputLastName');
+            const lastNameError = document.getElementById('lastNameError');
+            const emailInput = document.getElementById('inputEmail');
+            const emailError = document.getElementById('emailError');
+            const passwordInput = document.getElementById('inputPassword');
+            const passwordError = document.getElementById('passwordError');
+            const submitFormButton = document.getElementById('submitFormButton');
+
+            submitFormButton.addEventListener('click', function () {
+                const firstName = firstNameInput.value;
+                const lastName = lastNameInput.value;
+                const email = emailInput.value;
+                const password = passwordInput.value;
+
+                firstNameError.style.display = 'none';
+                lastNameError.style.display = 'none';
+                emailError.style.display = 'none';
+                passwordError.style.display = 'none';
+                successAlert.style.display = 'none';
+
+                if (!firstName) {
+                    firstNameError.style.display = 'block';
+                    return;
+                }
+
+                if (!lastName) {
+                    lastNameError.style.display = 'block';
+                    return;
+                }
+
+                if (!email) {
+                    emailError.style.display = 'block';
+                    return;
+                }
+
+                if (!password) {
+                    passwordError.style.display = 'block';
+                    return;
+                }
+
+                // Simulate successful form submission
+                successAlert.style.display = 'block';
+
+                // Simulate showing a snackbar message (not the exact behavior of MatSnackBar)
+                snackbar.className = 'alert alert-success';
+                document.body.appendChild(snackbar);
+                setTimeout(function () {
+                    document.body.removeChild(snackbar);
+                }, 10000); // Duration in milliseconds (10 seconds)
+            });
+        });
+    </script>
+
+</body>
+
+</html>
