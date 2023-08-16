@@ -91,35 +91,35 @@
                 passwordError.style.display = 'none';
                 successAlert.style.display = 'none';
 
+                let isValid = true;
+
                 if (!firstName) {
                     firstNameError.style.display = 'block';
-                    return;
+                    isValid = false;
                 }
 
                 if (!lastName) {
                     lastNameError.style.display = 'block';
-                    return;
+                    isValid = false;
                 }
 
                 if (!email) {
                     emailError.style.display = 'block';
-                    return;
+                    isValid = false;
                 }
 
                 if (!password) {
                     passwordError.style.display = 'block';
-                    return;
+                    isValid = false;
                 }
 
-                // Simulate successful form submission
-                successAlert.style.display = 'block';
+                if (isValid) {
+                    successAlert.style.display = 'block';
 
-                // Simulate showing a snackbar message (not the exact behavior of MatSnackBar)
-                snackbar.className = 'alert alert-success';
-                document.body.appendChild(snackbar);
-                setTimeout(function () {
-                    document.body.removeChild(snackbar);
-                }, 10000); // Duration in milliseconds (10 seconds)
+                    setTimeout(function () {
+                        successAlert.style.display = 'none';
+                    }, 10000); // Duration in milliseconds (10 seconds)
+                }
             });
         });
     </script>
